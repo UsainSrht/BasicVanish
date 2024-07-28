@@ -45,7 +45,7 @@ public final class BasicVanish extends JavaPlugin {
         dataFile = new File(getDataFolder(), "data.yml");
         if (!dataFile.exists()) {
             try {
-                dataFile.mkdirs();
+                dataFile.getParentFile().mkdirs();
                 dataFile.createNewFile();
             } catch (IOException e) {
                 throw new RuntimeException("An error occurred while trying to create data file", e);
@@ -76,9 +76,14 @@ public final class BasicVanish extends JavaPlugin {
     }
 
     public void save() {
-        ConfigurationSection config = YamlConfiguration.loadConfiguration(dataFile);
-        config.getStringList("vanished_players").clear();
-        config.getStringList("vanished_players").addAll(vanishedPlayers.stream().map(Object::toString).toList());
+        YamlConfiguration config = YamlConfiguration.loadConfiguration(dataFile);
+        config.set("vanished_players", vanishedPlayers.stream().map(Object::toString).toList());
+        try {
+            config.save(dataFile);
+        } catch (IOException e) {
+            throw new RuntimeException("An error occurred while trying to save data file", e);
+        }
+
     }
 
     public boolean isVanished(UUID uuid) {
