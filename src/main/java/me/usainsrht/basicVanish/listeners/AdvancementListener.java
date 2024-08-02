@@ -21,7 +21,7 @@ public class AdvancementListener implements Listener {
         Player player = e.getPlayer();
 
         if (plugin.isVanished(player.getUniqueId())) {
-            e.message(Component.empty());
+            e.message(null);
         }
     }
 

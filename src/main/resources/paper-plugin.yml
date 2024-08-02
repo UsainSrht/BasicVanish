@@ -3,4 +3,4 @@ version: '1.0.0'
 main: me.usainsrht.basicVanish.BasicVanish
 api-version: '1.21'
 authors: [ UsainSrht ]
-description: WorldGuard flags for SurvivalCage
+description: Basic lightweight vanish plugin with no extra features.

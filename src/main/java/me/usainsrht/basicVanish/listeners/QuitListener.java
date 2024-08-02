@@ -20,7 +20,7 @@ public class QuitListener implements Listener {
         Player player = e.getPlayer();
 
         if (plugin.isVanished(player.getUniqueId())) {
-            e.quitMessage(Component.empty());
+            e.quitMessage(null);
         }
     }
 

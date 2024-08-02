@@ -23,7 +23,7 @@ public class JoinListener implements Listener {
 
         if (plugin.isVanished(player.getUniqueId())) {
             plugin.enterVanish(player);
-            e.joinMessage(Component.empty());
+            e.joinMessage(null);
         }
     }
 
