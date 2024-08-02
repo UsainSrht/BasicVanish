@@ -16,7 +16,7 @@ public class AdvancementListener implements Listener {
         this.plugin = plugin;
     }
 
-    @EventHandler(priority = EventPriority.LOW)
+    @EventHandler(priority = EventPriority.HIGH)
     public void onQuit(PlayerAdvancementDoneEvent e) {
         Player player = e.getPlayer();
 
